@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerfilMenu">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="?attr/colorOnPrimary"
+        android:elevation="4dp"
+        android:gravity="start"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="64dp" />
+
+        <TextView
+            android:id="@+id/welcome_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Perfil"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/textViewNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre" />
+
+        <TextView
+            android:id="@+id/nombreText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="Nombre"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewDireccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Direccion" />
+
+        <TextView
+            android:id="@+id/direccionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="Direccion"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo" />
+
+        <TextView
+            android:id="@+id/correoText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="Correo"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewTelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefono" />
+
+        <TextView
+            android:id="@+id/telefonoText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="Telefono"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewContraseña"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contraseña" />
+
+        <TextView
+            android:id="@+id/contraseñaText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:password="true"
+            android:text="Contraseña"
+            android:textSize="20sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
+
+        <Button
+            android:id="@+id/editarPerfilbtn"
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
+            android:text="Editar" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
