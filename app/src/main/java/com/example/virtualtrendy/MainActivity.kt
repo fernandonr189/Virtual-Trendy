@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        usersList = getUsers()
         loginButton = findViewById(R.id.login_button)
         registerButton = findViewById(R.id.register_button)
         usernameTextField = findViewById(R.id.username_textfield)
@@ -67,6 +66,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun login() {
+        usersList = getUsers()
         if(usernameTextField.text.toString() == "admin" && passwordTextField.text.toString() == "admin") {
             val intent = Intent(this, AdminView::class.java).apply {
 

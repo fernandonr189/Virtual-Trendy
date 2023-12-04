@@ -13,6 +13,21 @@
         android:theme="@style/Theme.VirtualTrendy"
         tools:targetApi="31">
         <activity
+            android:name=".forms.AddShirtForm"
+            android:exported="false" />
+        <activity
+            android:name=".forms.AddShoesForm"
+            android:exported="false" />
+        <activity
+            android:name=".forms.AddPantsForm"
+            android:exported="false" />
+        <activity
+            android:name=".forms.AddSocksForm"
+            android:exported="false" />
+        <activity
+            android:name=".AdminAddSocks"
+            android:exported="false" />
+        <activity
             android:name=".AdminView"
             android:exported="false" />
         <activity

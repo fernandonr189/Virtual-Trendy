@@ -47,7 +47,7 @@ class RegisterForm : AppCompatActivity() {
     }
 
     private fun createUser() {
-        val user = User(Math.random().toInt(), userName= userNameTextField.text.toString(),
+        val user = User((0..9000).random(), userName= userNameTextField.text.toString(),
             address = addressTextField.text.toString(),
             userEmail = emailTextField.text.toString(),
             userPhone = phoneTextField.text.toString(),
