@@ -61,7 +61,7 @@ class StartScreen : AppCompatActivity() {
                 true
             }
             R.id.profile_menu_item -> {
-                goToCarrito()
+                goToPerfil()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -88,7 +88,7 @@ class StartScreen : AppCompatActivity() {
         startActivity(intent)
     }
     private fun goToPerfil() {
-        val intent = Intent(this, Productos::class.java).apply {
+        val intent = Intent(this, PerfilMenu::class.java).apply {
 
         }
         startActivity(intent)
