@@ -22,10 +22,8 @@ class MainActivity : AppCompatActivity() {
         usersList = getUsers()
         loginButton = findViewById(R.id.login_button)
         registerButton = findViewById(R.id.register_button)
-
         usernameTextField = findViewById(R.id.username_textfield)
         passwordTextField = findViewById(R.id.password_textfield)
-
         loginButton.setOnClickListener { 
             if(validateForm()) {
                 login()
@@ -34,7 +32,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, introduzca sus datos", Toast.LENGTH_SHORT).show()
             }
         }
-        
         registerButton.setOnClickListener {
             goToRegisterForm()
         }
@@ -48,28 +45,28 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "No hay usuarios registrados", Toast.LENGTH_SHORT).show()
             return ArrayList<User>()
         }
-        var _usersList : ArrayList<User> = ArrayList<User>()
+        val newUsersList : ArrayList<User> = ArrayList<User>()
         val users = usersString?.split("\\")
         if (users != null) {
             for(user in users) {
-                if(!user.isNullOrEmpty()) {
+                if(user.isNotEmpty()) {
                     val newUser = User(1, "","", "", "", "")
                     newUser.fromString(user)
-                    _usersList.add(newUser)
+                    newUsersList.add(newUser)
                 }
             }
         }
-        return _usersList
+        return newUsersList
     }
 
-    fun goToRegisterForm() {
+    private fun goToRegisterForm() {
         val intent = Intent(this, RegisterForm::class.java).apply {
 
         }
         startActivity(intent)
     }
 
-    fun login() {
+    private fun login() {
         for(user in this.usersList) {
             if(usernameTextField.text.toString() == user.userEmail) {
                 if(passwordTextField.text.toString() == user.password) {
@@ -82,10 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun validateForm() : Boolean {
-        if(usernameTextField.text.isNullOrEmpty() || passwordTextField.text.isNullOrEmpty()) {
-            return false
-        }
-        return true
+    private fun validateForm() : Boolean {
+        return !(usernameTextField.text.isNullOrEmpty() || passwordTextField.text.isNullOrEmpty())
     }
 }

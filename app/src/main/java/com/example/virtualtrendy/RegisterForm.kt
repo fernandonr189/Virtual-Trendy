@@ -40,13 +40,10 @@ class RegisterForm : AppCompatActivity() {
     }
     
     private fun validateForm() : Boolean {
-        if(userNameTextField.text.isNullOrEmpty() ||
-            addressTextField.text.isNullOrEmpty() ||
-            emailTextField.text.isNullOrEmpty() ||
-            phoneTextField.text.isNullOrEmpty()) {
-            return false
-        }
-        return true
+        return !(userNameTextField.text.isNullOrEmpty() ||
+                addressTextField.text.isNullOrEmpty() ||
+                emailTextField.text.isNullOrEmpty() ||
+                phoneTextField.text.isNullOrEmpty())
     }
 
     private fun createUser() {
@@ -60,14 +57,13 @@ class RegisterForm : AppCompatActivity() {
         val sharedPref = getSharedPreferences("USUARIOS", Context.MODE_PRIVATE)
         val usersString = sharedPref.getString("USERS", "EMPTY")
         var finalUserString = ""
-        if(usersString.contentEquals("EMPTY")){
-            finalUserString =  user.toString()
+        finalUserString = if(usersString.contentEquals("EMPTY")){
+            user.toString()
         }else {
-            finalUserString = usersString + user.toString()
+            usersString + user.toString()
         }
-
-        var editor = sharedPref.edit()
+        val editor = sharedPref.edit()
         editor.putString("USERS", finalUserString)
-        editor.commit()
+        editor.apply()
     }
 }
