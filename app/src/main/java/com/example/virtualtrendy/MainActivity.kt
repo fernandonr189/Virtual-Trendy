@@ -67,17 +67,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun login() {
-        for(user in this.usersList) {
-            if(usernameTextField.text.toString() == user.userEmail) {
-                if(passwordTextField.text.toString() == user.password) {
-                    val sharedPref = getSharedPreferences("USUARIO", Context.MODE_PRIVATE)
-                    val editor = sharedPref.edit()
-                    editor.putString("USUARIO", user.toString())
-                    editor.commit()
-                    val intent = Intent(this, StartScreen::class.java).apply {
+        if(usernameTextField.text.toString() == "admin" && passwordTextField.text.toString() == "admin") {
+            val intent = Intent(this, AdminView::class.java).apply {
 
+            }
+            startActivity(intent)
+        }
+        else {
+            for(user in this.usersList) {
+                if(usernameTextField.text.toString() == user.userEmail) {
+                    if(passwordTextField.text.toString() == user.password) {
+                        val sharedPref = getSharedPreferences("USUARIO", Context.MODE_PRIVATE)
+                        val editor = sharedPref.edit()
+                        editor.putString("USUARIO", user.toString())
+                        editor.commit()
+                        val intent = Intent(this, StartScreen::class.java).apply {
+
+                        }
+                        startActivity(intent)
                     }
-                    startActivity(intent)
                 }
             }
         }
