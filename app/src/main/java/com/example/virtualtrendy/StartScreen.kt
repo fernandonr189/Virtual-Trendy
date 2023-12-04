@@ -1,10 +1,12 @@
 package com.example.virtualtrendy
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 
@@ -40,5 +42,55 @@ class StartScreen : AppCompatActivity() {
             user.fromString(usersString)
         }
         return user
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection.
+        return when (item.itemId) {
+            R.id.start_menu_item -> {
+                goToProductos()
+                true
+            }
+            R.id.products_menu_item -> {
+                goToProductos()
+                true
+            }
+            R.id.cart_menu_item -> {
+                goToCarrito()
+                true
+            }
+            R.id.profile_menu_item -> {
+                goToCarrito()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+
+        }
+    }
+
+    private fun goToInicio() {
+        val intent = Intent(this, Productos::class.java).apply {
+
+        }
+        startActivity(intent)
+    }
+    private fun goToProductos() {
+        val intent = Intent(this, Productos::class.java).apply {
+
+        }
+        startActivity(intent)
+    }
+    private fun goToCarrito() {
+        val intent = Intent(this, Productos::class.java).apply {
+
+        }
+        startActivity(intent)
+    }
+    private fun goToPerfil() {
+        val intent = Intent(this, Productos::class.java).apply {
+
+        }
+        startActivity(intent)
     }
 }
