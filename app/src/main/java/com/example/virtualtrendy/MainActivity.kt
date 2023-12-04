@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
     fun login() {
         for(user in this.usersList) {
-            if(usernameTextField.text.toString() == user.userName) {
+            if(usernameTextField.text.toString() == user.userEmail) {
                 if(passwordTextField.text.toString() == user.password) {
                     Toast.makeText(this, "Login correcto", Toast.LENGTH_SHORT).show()
                 }
