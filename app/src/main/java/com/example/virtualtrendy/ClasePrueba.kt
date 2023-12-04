@@ -1,4 +1,4 @@
 package com.example.virtualtrendy
 
-class ClasePruab {
+class ClasePrueba {
 }
