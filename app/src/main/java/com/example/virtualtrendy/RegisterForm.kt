@@ -65,5 +65,6 @@ class RegisterForm : AppCompatActivity() {
         val editor = sharedPref.edit()
         editor.putString("USERS", finalUserString)
         editor.apply()
+        finish()
     }
 }

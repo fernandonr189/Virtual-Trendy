@@ -70,11 +70,11 @@ class MainActivity : AppCompatActivity() {
         for(user in this.usersList) {
             if(usernameTextField.text.toString() == user.userEmail) {
                 if(passwordTextField.text.toString() == user.password) {
-                    Toast.makeText(this, "Login correcto", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, StartScreen::class.java).apply {
+
+                    }
+                    startActivity(intent)
                 }
-            }
-            else {
-                Toast.makeText(this, "Usuario no encontrado", Toast.LENGTH_SHORT).show()
             }
         }
     }
