@@ -1,6 +1,6 @@
 package com.example.virtualtrendy
 
-class Prenda(
+open class Prenda(
     var idPrenda: Int,
     var descripcion: String,
     var precio: Double,
