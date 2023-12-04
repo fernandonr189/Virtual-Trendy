@@ -13,6 +13,9 @@
         android:theme="@style/Theme.VirtualTrendy"
         tools:targetApi="31">
         <activity
+            android:name=".AdminView"
+            android:exported="false" />
+        <activity
             android:name=".StartScreen"
             android:exported="false" />
         <activity

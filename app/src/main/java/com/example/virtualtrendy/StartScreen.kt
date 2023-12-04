@@ -41,6 +41,4 @@ class StartScreen : AppCompatActivity() {
         }
         return user
     }
-
-
 }
