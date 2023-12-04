@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Agregar clcetines"
+        android:id="@+id/add_socks_item"/>
+    <item
+        android:title="Agregar pantalones"
+        android:id="@+id/add_pants_item"/>
+    <item
+        android:title="Agregar playeras"
+        android:id="@+id/add_shirts_item"/>
+    <item
+        android:title="Agregar zapatos"
+        android:id="@+id/add_shoes_item"/>
+</menu>
