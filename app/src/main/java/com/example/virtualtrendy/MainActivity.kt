@@ -70,6 +70,10 @@ class MainActivity : AppCompatActivity() {
         for(user in this.usersList) {
             if(usernameTextField.text.toString() == user.userEmail) {
                 if(passwordTextField.text.toString() == user.password) {
+                    val sharedPref = getSharedPreferences("USUARIO", Context.MODE_PRIVATE)
+                    val editor = sharedPref.edit()
+                    editor.putString("USUARIO", user.toString())
+                    editor.commit()
                     val intent = Intent(this, StartScreen::class.java).apply {
 
                     }
