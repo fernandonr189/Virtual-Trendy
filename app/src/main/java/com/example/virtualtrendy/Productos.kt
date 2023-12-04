@@ -1,6 +1,8 @@
 package com.example.virtualtrendy
 
+import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,33 +19,89 @@ class Productos : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var prendaAdapter: PrendaAdapter
 
-    private lateinit var productos: Array<Prenda>
+    private lateinit var productos: ArrayList<Prenda>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_productos)
-
-        val playera1 = Playera(1, "Playera de algodón", 15.99, "M", "Blanco", "Algodón", true, "Corta", "Redondo", "Verano")
-        val playera2 = Playera(2, "Playera deportiva", 20.00, "L", "Negro", "Poliéster", false, "Larga", "V", "Invierno")
-
-        // Creando objetos de la clase Pantalon
-        val pantalon1 = Pantalon(3, "Jeans clásico", 25.99, "32", "Azul", "Denim", "Recto", "Unisex", "Botones", "Todas")
-        val pantalon2 = Pantalon(4, "Pantalón chino", 30.00, "34", "Beige", "Algodón", "Slim", "Masculino", "Cremallera", "Verano")
-
-        // Creando objetos de la clase Zapatos
-        val zapatos1 = Zapatos(5, "Zapatos de cuero", 50.00, "42", "Marrón", "Clarks", "Cordones", "Cuero")
-        val zapatos2 = Zapatos(6, "Tenis deportivos", 60.00, "40", "Blanco", "Nike", "Velcro", "Sintético")
-
-        // Creando objetos de la clase Calcetines
-        val calcetines1 = Calcetines(7, "Calcetines de algodón", 5.99, "M", "Negro", "Deportivos", "Corto", "Algodón", true)
-        val calcetines2 = Calcetines(8, "Calcetines térmicos", 6.99, "L", "Gris", "Térmicos", "Largo", "Lana", false)
-
-        // Almacenando todos los objetos en un mismo arreglo
-        val productos = arrayOf<Prenda>(playera1, playera2, pantalon1, pantalon2, zapatos1, zapatos2, calcetines1, calcetines2)
+        productos = getPrendas()
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         prendaAdapter = PrendaAdapter(productos) // Asegúrate de que 'productos' esté accesible aquí
         recyclerView.adapter = prendaAdapter
+    }
+
+    private fun getPrendas() : ArrayList<Prenda> {
+        var _prendas = ArrayList<Prenda>()
+        var sharedPref = getSharedPreferences("CALCETINES", Context.MODE_PRIVATE)
+        var socksString = sharedPref.getString("CALCETINES", "EMPTY")
+        if(socksString == "EMPTY") {
+            Toast.makeText(this, "No hay calcetines", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            var _calcetines = socksString?.split("\\")
+            if (_calcetines != null) {
+                for(calcetin in _calcetines) {
+                    if(calcetin.isNotEmpty()) {
+                        var nuevoCalcetin = Calcetines(1, "", 1.0, "", "", "", "", "", false)
+                        nuevoCalcetin.fromString(calcetin)
+                        _prendas.add(nuevoCalcetin)
+                    }
+                }
+            }
+        }
+        sharedPref = getSharedPreferences("PANTALONES", Context.MODE_PRIVATE)
+        socksString = sharedPref.getString("PANTALONES", "EMPTY")
+        if(socksString == "EMPTY") {
+            Toast.makeText(this, "No hay pantalones", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            var _pantalones = socksString?.split("\\")
+            if (_pantalones != null) {
+                for(pantalon in _pantalones) {
+                    if(pantalon.isNotEmpty()) {
+                        var nuevoPantalon = Pantalon(1, "", 1.1, "", "", "", "", "", "", "")
+                        nuevoPantalon.fromString(pantalon)
+                        _prendas.add(nuevoPantalon)
+                    }
+                }
+            }
+        }
+        sharedPref = getSharedPreferences("PLAYERAS", Context.MODE_PRIVATE)
+        socksString = sharedPref.getString("PLAYERAS", "EMPTY")
+        if(socksString == "EMPTY") {
+            Toast.makeText(this, "No hay playeras", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            var _playeras = socksString?.split("\\")
+            if (_playeras != null) {
+                for(playera in _playeras) {
+                    if(playera.isNotEmpty()) {
+                        var nuevaPlayera = Playera(1, "", 1.1, "", "", "", false, "", "", "")
+                        nuevaPlayera.fromString(playera)
+                        _prendas.add(nuevaPlayera)
+                    }
+                }
+            }
+        }
+        sharedPref = getSharedPreferences("ZAPATOS", Context.MODE_PRIVATE)
+        socksString = sharedPref.getString("ZAPATOS", "EMPTY")
+        if(socksString == "EMPTY") {
+            Toast.makeText(this, "No hay zapatos", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            var _zapatos = socksString?.split("\\")
+            if (_zapatos != null) {
+                for(zapato in _zapatos) {
+                    if(zapato.isNotEmpty()) {
+                        var nuevoZapato = Zapatos(1, "", 1.0, "", "", "", "", "")
+                        nuevoZapato.fromString(zapato)
+                        _prendas.add(nuevoZapato)
+                    }
+                }
+            }
+        }
+        return _prendas
     }
 }

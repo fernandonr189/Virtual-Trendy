@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class PrendaAdapter(private val productos: Array<Prenda>) : RecyclerView.Adapter<PrendaAdapter.PrendaViewHolder>() {
+class PrendaAdapter(private val productos: ArrayList<Prenda>) : RecyclerView.Adapter<PrendaAdapter.PrendaViewHolder>() {
 
     class PrendaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var textViewDescripcion: TextView = itemView.findViewById(R.id.textViewDescripcion)
@@ -19,7 +19,7 @@ class PrendaAdapter(private val productos: Array<Prenda>) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: PrendaViewHolder, position: Int) {
-        val currentItem = productos[position]
+        val currentItem = productos.get(position)
         holder.textViewDescripcion.text = currentItem.descripcion
         // Configura los otros elementos de la vista aquí
     }
